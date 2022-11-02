@@ -14,7 +14,7 @@ export class CdkStarterStack extends cdk.Stack {
       subnetConfiguration: [
         {
           name: 'private-subnet-1',
-          subnetType: ec2.SubnetType.PRIVATE_WITH_NAT,
+          subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS,
           cidrMask: 24,
         },
         {
@@ -29,7 +29,7 @@ export class CdkStarterStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_16_X,
       vpc,
       vpcSubnets: {
-        subnetType: ec2.SubnetType.PRIVATE_WITH_NAT,
+        subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS,
       },
       memorySize: 1024,
       timeout: cdk.Duration.seconds(5),
